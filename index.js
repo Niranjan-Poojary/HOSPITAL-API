@@ -1,6 +1,8 @@
 const express=require('express');
 const bodyParser = require('body-parser');
 const db=require('./config/database');
+const passport=require('passport');
+const passportStratergy=require('./config/passport');
 const router = require("./routes/index");
 
 
