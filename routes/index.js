@@ -1,9 +1,11 @@
 const express=require('express');
-const{ test} = require("../controllers/userControllers");
+const{ registerDoctor, registerPatient, createReport} = require("../controllers/userControllers");
 
 const router=express.Router();
 
-router.get('/',test);
+router.post("/doctors/register",registerDoctor);
 
+router.post("/patients/register",registerPatient);
 
+router.post("/patients/:id/create_report",createReport);
 module.exports=router;

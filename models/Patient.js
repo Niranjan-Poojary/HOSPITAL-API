@@ -27,3 +27,8 @@ const patientSchema = new mongoose.Schema({
             required:true,
         },
 });
+
+
+const Patient = new mongoose.model("Patient",patientSchema);
+
+module.exports=Patient;
