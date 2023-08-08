@@ -1,10 +1,15 @@
 const mongoose=require('mongoose');
 
+//Creating the Doctor Schema
 const doctorSchema = new mongoose.Schema({
     name: {
         type:String,
         required:[true,"Please Enter the name"],
     },
+    phone:{
+        type: Number,
+        required: [true,"Please Enter the name"],
+      },
     password: {
         type:String,
         required:[true,"Please Enter Your Password"],

@@ -2,8 +2,8 @@ const passport = require('passport');
 
 const Doctor = require('../models/doctor');
 
-var JwtStrategy = require('passport-jwt').Strategy,
-    ExtractJwt = require('passport-jwt').ExtractJwt;
+const    JwtStrategy = require('passport-jwt').Strategy;
+ const   ExtractJwt = require('passport-jwt').ExtractJwt;
 
 
 var opts = {}
