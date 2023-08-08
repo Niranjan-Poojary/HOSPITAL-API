@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+//creating the patient Schema
 const patientSchema = new mongoose.Schema({
     phone: {
         type:String,
@@ -16,6 +18,8 @@ const patientSchema = new mongoose.Schema({
     gender:{
         type:String
     },
+
+    //creating the patient report schema
     reports: [
         {
            status: {
@@ -43,7 +47,7 @@ const patientSchema = new mongoose.Schema({
         },
 });
 
-
+//exports the patient model
 const Patient = new mongoose.model("Patient",patientSchema);
 
 module.exports=Patient;

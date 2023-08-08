@@ -2,10 +2,14 @@ const Doctor = require("../models/doctor");
 const Patient= require("../models/Patient");
 const jwt = require('jsonwebtoken');
 
+
+//To register for the doctor
+ //To check for the password and confirm passwor
 module.exports.registerDoctor = async(req,res,next) =>{
+
+   
     try{
         const doctor = await Doctor.create(req.body);
-
         res.status(200).json({
             success:true,
             message:"doctor created successfully",
@@ -18,17 +22,19 @@ module.exports.registerDoctor = async(req,res,next) =>{
     }
 };
 
-
+//login for the doctor
 module.exports.login = async (req,res,next) => {
+
     try {
         const user = Doctor.find(req.body);
-
+       //if doctor exists and passwords match - login and generate jwt token
         if(user){
             const token = jwt.sign(user.id,"secret");
             res.status(200).json({
                 success:true,
                 token,
             });
+               //if do not exists or exists and password do not match
         }else{
             res.status(404).json({
                 success:false,
@@ -43,6 +49,7 @@ module.exports.login = async (req,res,next) => {
     }
 };
 
+//Register for the patient
 module.exports.registerPatient = async (req,res,next)=>{
     try{
         req.body.doctor = "64d081da42539fc83f009e49";
@@ -59,6 +66,7 @@ module.exports.registerPatient = async (req,res,next)=>{
     }
 };
 
+//Creating the report
 module.exports.createReport = async (req,res,next)=>{
     try{
         const patient = await Patient.findById(req.params.id);
@@ -82,9 +90,12 @@ module.exports.createReport = async (req,res,next)=>{
     }
 };
 
+//Creating the all report
 module.exports.all_reports = async (req,res,next)=>{
+    //Check if the patient is available or not
     try{
 
+        //If the patient available check for the report
         const patient = await Patient.findById(req.params.id);
 
         res.status(200).json({

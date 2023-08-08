@@ -14,8 +14,10 @@ const PORT=8000;
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+//loading the router
 app.use(router);
 
+//Starting the server
 app.listen(PORT,(arr)=>{
     if(arr){
         console.log(`Server is giving an error:${arr}`);
