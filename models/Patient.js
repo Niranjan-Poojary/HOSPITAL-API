@@ -3,20 +3,11 @@ const mongoose = require('mongoose');
 
 //creating the patient Schema
 const patientSchema = new mongoose.Schema({
-    phone: {
-        type:String,
-        required:true
-    },
+    
     name: {
         type:String,
         required: [true,"Please Provide patient name"],
-        unique:true,
-    },
-    age:{
-        type:String,
-    },
-    gender:{
-        type:String
+         unique:true,
     },
 
     //creating the patient report schema

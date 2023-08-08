@@ -10,13 +10,16 @@ const router=express.Router();
 router.post("/doctors/register",registerDoctor);
 
 //login doctor
- router.post("/login",login);
+//  router.post("/login",login);
 
 //register for the patient
-router.post("/patients/register", passport.authenticate('jwt',{session:false}), registerPatient);
+// router.post("/patients/register", passport.authenticate('jwt',{session:false}), registerPatient);
+
+router.post("/patients/register",  registerPatient);
 
 //creating the patient report
-router.post("/patients/:id/create_report",passport.authenticate('jwt',{session:false}),createReport);
+// router.post("/patients/:id/create_report",passport.authenticate('jwt',{session:false}),createReport);
+router.post("/patients/:id/create_report",createReport);
 
 //get the all the report of the particular patient
 router.get("/patients/:id/all_report",all_reports);

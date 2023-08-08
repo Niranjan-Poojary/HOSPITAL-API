@@ -6,10 +6,7 @@ const doctorSchema = new mongoose.Schema({
         type:String,
         required:[true,"Please Enter the name"],
     },
-    phone:{
-        type: Number,
-        required: [true,"Please Enter the name"],
-      },
+   
     password: {
         type:String,
         required:[true,"Please Enter Your Password"],

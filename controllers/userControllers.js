@@ -22,37 +22,37 @@ module.exports.registerDoctor = async(req,res,next) =>{
     }
 };
 
-//login for the doctor
-module.exports.login = async (req,res,next) => {
+//userlogin for the doctor
+// module.exports.login = async (req,res,next) => {
 
-    try {
-        const user = Doctor.find(req.body);
-       //if doctor exists and passwords match - login and generate jwt token
-        if(user){
-            const token = jwt.sign(user.id,"secret");
-            res.status(200).json({
-                success:true,
-                token,
-            });
-               //if do not exists or exists and password do not match
-        }else{
-            res.status(404).json({
-                success:false,
-                message:"name or password don not match",
-            });
-        }
-    }catch(error){
-        res.status(500).json({
-            success:false,
-            message:"something went wrong",
-        });
-    }
-};
+//     try {
+//         const user = Doctor.find(req.body);
+//        //if doctor exists and passwords match - login and generate jwt token
+//         if(user){
+//             const token = jwt.sign(user.id,"secret");
+//             res.status(200).json({
+//                 success:true,
+//                 token,
+//             });
+//                //if do not exists or exists and password do not match
+//         }else{
+//             res.status(404).json({
+//                 success:false,
+//                 message:"name or password don not match",
+//             });
+//         }
+//     }catch(error){
+//         res.status(500).json({
+//             success:false,
+//             message:"something went wrong",
+//         });
+//     }
+// };
 
 //Register for the patient
 module.exports.registerPatient = async (req,res,next)=>{
     try{
-        req.body.doctor = "64d081da42539fc83f009e49";
+        req.body.doctor = "64d1deebe4b41c7b11ecdf40";
         const patient = await Patient.create(req.body);
         res.status(200).json({
             success:true,
